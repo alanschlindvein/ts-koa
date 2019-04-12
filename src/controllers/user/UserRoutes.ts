@@ -6,18 +6,18 @@ export default class UserRoutes {
   private readonly _router: Router
   private readonly _controller: UserController
 
-  public constructor () {
+  public constructor (prefix: string = '') {
     this._router = new Router()
     this._controller = new UserController()
 
-    this.initRoutes()
+    this.initRoutes(prefix)
   }
 
   public get router (): Router {
     return this._router
   }
 
-  private initRoutes (): void {
-    this._router.get('/users', this._controller.users)
+  private initRoutes (prefix: string): void {
+    this._router.get(`${prefix}/users`, this._controller.users)
   }
 }

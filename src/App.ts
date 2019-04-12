@@ -11,17 +11,17 @@ class App {
 
     public constructor () {
       this._app = new Koa()
-      this._routes = new Routes(this._app)
+      this._routes = new Routes(this._app, '/api')
 
       this.middlewares()
-      this.initRoutes()
+      this.routes()
     }
 
     public get app (): Koa {
       return this._app
     }
 
-    private initRoutes (): void {
+    private routes (): void {
       this._routes.init()
     }
 
